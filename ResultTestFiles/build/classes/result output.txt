@@ -1,0 +1,14 @@
+test run on: Mon Mar 14 19:33:52 GMT 2016
+
+Module:        Applications Development with Java                
+Students:      6    
+Passes:        4    
+Pass Rate:     55.74%
+NAME                          BANNER ID           CWRK(40)  EXAM(60)  TOTAL     GRADE     RESULT    
+Buchan, Caitlin               B09898432           30        100       72.00     C         RC2       
+McDonald, Donald              B88508593           20        17        18.20     E         RB2       
+McDonald, Donald              B88508594           65        34        46.40     C         RE2       
+Tough, Kyle                   B09384932           100       39        63.40     C         RE2       
+Winchester, Dean              B30480344           43        38        40.00     C         RB2       
+Winchester, Dean              B30480345           76        64        68.80     B1        PA        
+AVERAGE%                                          55.74     55.74     55.74     
