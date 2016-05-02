@@ -6,7 +6,7 @@
 
 /**
  *
- * @author caitl
+ * @author caitlin
  */
 public class Module {
     private Student [] studentList;
