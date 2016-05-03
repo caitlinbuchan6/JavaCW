@@ -13,10 +13,8 @@ public class ResultTestFiles {
         FileIO.setUpFiles("result input.txt", "result output.txt");
         String name;
         String bannerId;
-        
         int cwMark;
         int examMark;
-        
         final int MAX_NO_OF_STUDENTS = 30;
         
         String modName = FileIO.getString();
