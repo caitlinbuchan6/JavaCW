@@ -26,7 +26,7 @@ public class Module {
         String grade;
         String result;
         double overallMark;
-        int currentPosition = this.compareTo(name, bannerId);
+        int studentPosition = this.compareTo(name, bannerId);
         
         //get mark, result and grade from respective private methods
         overallMark = this.findOverallMark(cwMark, examMark);
@@ -34,10 +34,10 @@ public class Module {
         grade = this.findGrade(overallMark, result);
         
         //move existing students along if necessary
-        this.moveOver(currentPosition);
+        this.moveOver(studentPosition);
         
         //create student at current position in the array        
-        this.studentList[currentPosition] = new Student (name, bannerId, cwMark, examMark, overallMark, grade, result);
+        this.studentList[studentPosition] = new Student (name, bannerId, cwMark, examMark, overallMark, grade, result);
         this.noOfStudents++;
     }
     
@@ -69,31 +69,31 @@ public class Module {
         end loop
         */
         //attributes required
-        int currentPosition=0;
+        int studentPosition=0;
         boolean placed = false;
         int nameComparison;
         int idComparison;
         
         //check to see if the array is empty, add student if it is
         if (this.noOfStudents == 0){
-            currentPosition=0;
+            studentPosition=0;
         }
         
         else {
             while (placed == false) {
                 //adding student to last position
-                if (this.noOfStudents == currentPosition){
+                if (this.noOfStudents == studentPosition){
                     placed = true;
                 }
                 else {
                     //compare the name of the new student, to the name of the student at the current position in the array            
-                    nameComparison = this.studentList[currentPosition].getName().compareToIgnoreCase(name);
+                    nameComparison = this.studentList[studentPosition].getName().compareToIgnoreCase(name);
                     //comparing bannerID
                     if (nameComparison == 0){
-                        idComparison = this.studentList[currentPosition].getBannerId().compareToIgnoreCase(bannerId);
+                        idComparison = this.studentList[studentPosition].getBannerId().compareToIgnoreCase(bannerId);
                         //student at position+1
                         if (idComparison < 0){
-                            currentPosition++;
+                            studentPosition++;
                             placed = true;
                         }
                         //student at position
@@ -104,7 +104,7 @@ public class Module {
                     //if the name is less than zero, the new student comes somewhere after the current student.
                     //increment the current position and start again.
                     else if (nameComparison < 0){
-                        currentPosition++;
+                        studentPosition++;
                         placed = false;
                     }
                     //student at position
@@ -114,7 +114,7 @@ public class Module {
                 }
             } 
         }
-        return currentPosition;
+        return studentPosition;
     }
     
     private void moveOver (int currentPosition){
