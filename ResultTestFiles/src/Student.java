@@ -31,22 +31,6 @@ public class Student {
         return this.result;
     }
     
-    public String getTotalResult(){
-        return this.result.getTotalResult();
-    }
-    
-    public double getCwMark() {
-        return this.result.getCwMark();
-    }
-    
-    public double getExamMark() {
-        return this.result.getExamMark();
-    }
-    
-    public double getOverallMark() {
-        return this.result.getOverallMark();
-    }
-    
     public String toString() {
         String student = new String();
         student+=String.format("%-30s%-20s%50s", this.name, this.bannerId, this.result);

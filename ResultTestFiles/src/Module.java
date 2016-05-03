@@ -194,15 +194,11 @@ public class Module {
         int countPasses = 0; 
         
         for (int i=0; i<this.noOfStudents; i++){
-            System.out.println(this.studentList[i].getTotalResult());
-            if (this.studentList[i].getTotalResult().equals("PA")){
-                System.out.println(this.studentList[i].getTotalResult().equals("PA"));
+            if (this.studentList[i].getResult().getTotalResult().equals("PA")){
                 countPasses++;
-                System.out.println(countPasses);
             }
         }
         
-        System.out.println("no of passes:" + countPasses);
         return countPasses;
     }
     
@@ -217,7 +213,7 @@ public class Module {
         double examAverage;
        
         for (int i=0; i<this.noOfStudents; i++){
-            examTotal+=this.studentList[i].getExamMark();
+            examTotal+=this.studentList[i].getResult().getExamMark();
         }
         examAverage = this.findAverage(examTotal);
         return examAverage;
@@ -228,7 +224,7 @@ public class Module {
         double cwAverage;
         
         for (int i=0; i<this.noOfStudents; i++){
-            cwTotal+=this.studentList[i].getCwMark();
+            cwTotal+=this.studentList[i].getResult().getCwMark();
         }
         cwAverage = this.findAverage(cwTotal);
         return cwAverage;
@@ -239,7 +235,7 @@ public class Module {
         double overallAverage;
         
         for (int i=0; i<this.noOfStudents; i++){
-            overallTotal+=this.studentList[i].getOverallMark();
+            overallTotal+=this.studentList[i].getResult().getOverallMark();
         }
         overallAverage = this.findAverage(overallTotal);
         return overallAverage;
