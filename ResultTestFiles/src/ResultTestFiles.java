@@ -31,7 +31,7 @@ public class ResultTestFiles {
                 bannerId = FileIO.getString();
                 cwMark = FileIO.getInteger();
                 examMark = FileIO.getInteger();
-                studentList.addStudent(name, bannerId, cwMark, examMark);
+                studentList.compareTo(name, bannerId, cwMark, examMark);
             }
             
         }while (name!=null);

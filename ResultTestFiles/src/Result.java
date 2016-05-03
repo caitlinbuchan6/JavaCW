@@ -22,6 +22,22 @@ public class Result {
         this.grade = grade;
         this.result = result;
     }
+    
+    public String getTotalResult() {
+       return this.result;        
+    }
+    
+    public double getCwMark() {
+        return this.cwMark;
+    }
+    
+    public double getExamMark() {
+        return this.examMark;
+    }
+    
+    public double getOverallMark() {
+        return this.overallMark;
+    }
   
     public String toString(){
         String result = new String();
