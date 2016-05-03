@@ -70,42 +70,44 @@ public class Module {
                     this.addStudent(name, bannerId, currentPosition, cwMark, examMark);
                     placed = true;
                     }
-                           
-                //compare the name of the new student, to the name of the student at the current position in the array            
-                nameComparison = this.studentList[currentPosition].getName().compareToIgnoreCase(name);
+                
+                else {
+                    //compare the name of the new student, to the name of the student at the current position in the array            
+                    nameComparison = this.studentList[currentPosition].getName().compareToIgnoreCase(name);
                                                
-                //comparing bannerID
-                if (nameComparison == 0){
-                    idComparison = this.studentList[currentPosition].getBannerId().compareToIgnoreCase(bannerId);
+                    //comparing bannerID
+                    if (nameComparison == 0){
+                        idComparison = this.studentList[currentPosition].getBannerId().compareToIgnoreCase(bannerId);
                                         
-                    //student at position+1
-                    if (idComparison < 0){
-                        currentPosition++;
-                        this.moveOver(currentPosition);
-                        this.addStudent(name, bannerId, currentPosition, cwMark, examMark);
-                        placed = true;
+                        //student at position+1
+                        if (idComparison < 0){
+                            currentPosition++;
+                            this.moveOver(currentPosition);
+                            this.addStudent(name, bannerId, currentPosition, cwMark, examMark);
+                            placed = true;
+                        }
+                    
+                        //student at position
+                        else {
+                            this.moveOver(currentPosition);
+                            this.addStudent(name, bannerId, currentPosition, cwMark, examMark);
+                            placed = true;
+                        }
                     }
                     
+                    //if the name is less than zero, the new student comes somewhere after the current student.
+                    //increment the current position and start again.
+                    else if (nameComparison < 0){
+                        currentPosition++;
+                        placed = false;
+                    }
+                
                     //student at position
                     else {
                         this.moveOver(currentPosition);
                         this.addStudent(name, bannerId, currentPosition, cwMark, examMark);
                         placed = true;
                     }
-                }
-                    
-                //if the name is less than zero, the new student comes somewhere after the current student.
-                //increment the current position and start again.
-                else if (nameComparison < 0){
-                    currentPosition++;
-                    placed = false;
-                }
-                
-                //student at position
-                else {
-                    this.moveOver(currentPosition);
-                    this.addStudent(name, bannerId, currentPosition, cwMark, examMark);
-                    placed = true;
                 }
             } 
         }
