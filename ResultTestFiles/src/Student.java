@@ -13,10 +13,10 @@ public class Student {
     private String bannerId;
     private Result result;
          
-    public Student (String name, String bannerId, Result results) {
+    public Student (String name, String bannerId, int cwMark, int examMark, double overallMark, String grade, String result) {
         this.name = name;
         this.bannerId = bannerId;
-        this.result = results;
+        this.result = new Result (cwMark, examMark, overallMark, grade, result);
     }
     
     public String getName() {
@@ -29,6 +29,22 @@ public class Student {
     
     public Result getResult(){
         return this.result;
+    }
+    
+    public String getTotalResult(){
+        return this.result.getTotalResult();
+    }
+    
+    public double getCwMark() {
+        return this.result.getCwMark();
+    }
+    
+    public double getExamMark() {
+        return this.result.getExamMark();
+    }
+    
+    public double getOverallMark() {
+        return this.result.getOverallMark();
     }
     
     public String toString() {
