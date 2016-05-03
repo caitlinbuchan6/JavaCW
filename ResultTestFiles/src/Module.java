@@ -52,7 +52,7 @@ public class Module {
         
         
         */
-        //
+        //attributes required
         int currentPosition=0;
         boolean placed = false;
         int nameComparison;
@@ -264,7 +264,7 @@ public class Module {
         for (int i=0; i<this.noOfStudents; i++)
             studentDetails+=this.studentList[i];
         
-        totalCounts+=String.format("%-50s%-10.2f%-10.2f%-10.2f", "AVERAGE%", this.examAverage(), this.cwAverage(), this.overallAverage());
+        totalCounts+=String.format("%-50s%-10.2f%-10.2f%-10.2f", "AVERAGE%", this.cwAverage(), this.examAverage(), this.overallAverage());
                     
         output+= overHeadDetails + titleDetails + studentDetails + totalCounts;
         return output;
