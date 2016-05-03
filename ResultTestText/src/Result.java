@@ -9,21 +9,39 @@
  * @author caitl
  */
 public class Result {
-    private double cwMark;
-    private double examMark;
+    private int cwMark;
+    private int examMark;
     private double overallMark;
     private String grade;
     private String result;
     
-    public Result (double cwMark, double examMark, double overallMark, String grade, String result){
+    public Result (int cwMark, int examMark, double overallMark, String grade, String result){
         this.cwMark = cwMark;
         this.examMark = examMark;
         this.overallMark = overallMark;
         this.grade = grade;
         this.result = result;
     }
+    
+    public String getTotalResult() {
+       return this.result;        
+    }
+    
+    public double getCwMark() {
+        return this.cwMark;
+    }
+    
+    public double getExamMark() {
+        return this.examMark;
+    }
+    
+    public double getOverallMark() {
+        return this.overallMark;
+    }
   
     public String toString(){
-        return this.cwMark + this.examMark + this.overallMark + this.grade + this.result;
+        String result = new String();
+        result+=String.format("%-10d%-10d%-10.2f%-10s%-10s\n", this.cwMark, this.examMark, this.overallMark, this.grade, this.result);
+        return result;
     }
 }

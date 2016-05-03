@@ -13,10 +13,10 @@ public class Student {
     private String bannerId;
     private Result result;
          
-    public Student (String name, String bannerId, Result results) {
+    public Student (String name, String bannerId, int cwMark, int examMark, double overallMark, String grade, String result) {
         this.name = name;
         this.bannerId = bannerId;
-        this.result = results;
+        this.result = new Result (cwMark, examMark, overallMark, grade, result);
     }
     
     public String getName() {

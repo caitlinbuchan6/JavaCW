@@ -13,16 +13,10 @@ public class Student {
     private String bannerId;
     private Result result;
          
-    public Student (String name, String bannerId, double cwMark, double examMark, double overallMark, String grade, String result){
+    public Student (String name, String bannerId, int cwMark, int examMark, double overallMark, String grade, String result) {
         this.name = name;
         this.bannerId = bannerId;
         this.result = new Result (cwMark, examMark, overallMark, grade, result);
-    }
-    
-    public Student (String name, String bannerId, Result results) {
-        this.name = name;
-        this.bannerId = bannerId;
-        this.result = results;
     }
     
     public String getName() {
@@ -38,7 +32,9 @@ public class Student {
     }
     
     public String toString() {
-        return this.name + this.bannerId + this.result.toString();
-    }
+        String student = new String();
+        student+=String.format("%-30s%-20s%50s", this.name, this.bannerId, this.result);
+        return student;        
+   }
     
 }

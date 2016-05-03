@@ -23,9 +23,29 @@ public class Module {
     }
     
     public void addStudent (String name, String bannerId, int cwMark, int examMark){
+        String grade;
+        String result;
+        double overallMark;
+        int studentPosition = this.compareTo(name, bannerId);
+        
+        //get mark, result and grade from respective private methods
+        overallMark = this.findOverallMark(cwMark, examMark);
+        result = this.findResult(cwMark, examMark, overallMark);
+        grade = this.findGrade(overallMark, result);
+        
+        //move existing students along if necessary
+        this.moveOver(studentPosition);
+        
+        //create student at current position in the array        
+        this.studentList[studentPosition] = new Student (name, bannerId, cwMark, examMark, overallMark, grade, result);
+        this.noOfStudents++;
+    }
+    
+    private int compareTo (String name, String bannerId){
         /*algorithm
         add first student to position 0 in the array
-        do loop
+        while loop
+            if the current position is greater than the the number of students then add to end
             get the name of the next student in the array
             compare name strings
             if new student is equal to old student
@@ -47,86 +67,54 @@ public class Module {
                 student is not placed
         while the student has not been placed        
         end loop
-        
-        data requirements
-        
-        
         */
-        //
-        int currentPosition=0;
+        //attributes required
+        int studentPosition=0;
         boolean placed = false;
         int nameComparison;
         int idComparison;
         
-        //get result from private method
-        Result studentResult = this.getResult(cwMark, examMark);
-        
+        //check to see if the array is empty, add student if it is
         if (this.noOfStudents == 0){
-            this.studentList[this.noOfStudents] = new Student(name, bannerId, studentResult);
-            this.noOfStudents++;
+            studentPosition=0;
         }
         
         else {
             while (placed == false) {
-                
-                //check to see if you have reached the end of the entries in the array. If you have, then add the
-                //student at the end of the array and break out of the loop.
-                if (this.noOfStudents == currentPosition){
-                    this.createNewStudent(name, bannerId, studentResult, currentPosition);
-                    break;
-                    }
-                           
-                //compare the name of the new student, to the name of the student at the current position in the array            
-                nameComparison = this.studentList[currentPosition].getName().compareToIgnoreCase(name);
-                                               
-                //if the name is equal to zero, then the new student and current student have the same names. The bannerId of
-                //these students now needs to be compared.
-                if (nameComparison == 0){
-                    idComparison = this.studentList[currentPosition].getBannerId().compareToIgnoreCase(bannerId);
-                                        
-                    //if the id is less than zero, then the new student comes after the current student, so needs to be entered
-                    //at the current position +1. Move the current students over one place, then slot the new student into the
-                    //array.
-                    if (idComparison < 0){
-                        for (int i = this.noOfStudents; i>=currentPosition; i--){
-                            this.studentList[i+2] = this.studentList[i+1];
-                        }
-                        this.studentList[currentPosition+1] = new Student (name, bannerId, studentResult);
-                        this.noOfStudents++;
-                        placed = true;
-                    }
-                    
-                    //else if the the id is greater than zero, the student comes before the current student. Move students along one
-                    //position and add the student in at this position.
-                    else if (idComparison > 0){
-                        this.moveOver(currentPosition);
-                        this.createNewStudent(name, bannerId, studentResult, currentPosition);
-                        placed = true;
-                    }
-                    
-                    //else the ids are the same, so the student is already in the list. Change placed to true as the student has already
-                    //been added.
-                    else
-                        placed = true;
-                }
-                    
-                //if the name is less than zero, the new student comes somewhere after the current student.
-                //increment the current position and start again.
-                else if (nameComparison < 0){
-                    currentPosition++;
-                    placed = false;
-                }
-                
-                //if the name is greater than zero, the new student comes before the current student, so needs to be entered
-                //at currentPosition in the array. Move the current students along one place, then slot the new student into 
-                //the array.
-                else {
-                    this.moveOver(currentPosition);
-                    this.createNewStudent(name, bannerId, studentResult, currentPosition);
+                //adding student to last position
+                if (this.noOfStudents == studentPosition){
                     placed = true;
+                }
+                else {
+                    //compare the name of the new student, to the name of the student at the current position in the array            
+                    nameComparison = this.studentList[studentPosition].getName().compareToIgnoreCase(name);
+                    //comparing bannerID
+                    if (nameComparison == 0){
+                        idComparison = this.studentList[studentPosition].getBannerId().compareToIgnoreCase(bannerId);
+                        //student at position+1
+                        if (idComparison < 0){
+                            studentPosition++;
+                            placed = true;
+                        }
+                        //student at position
+                        else {
+                            placed = true;
+                        }
+                    }
+                    //if the name is less than zero, the new student comes somewhere after the current student.
+                    //increment the current position and start again.
+                    else if (nameComparison < 0){
+                        studentPosition++;
+                        placed = false;
+                    }
+                    //student at position
+                    else {
+                        placed = true;
+                    }
                 }
             } 
         }
+        return studentPosition;
     }
     
     private void moveOver (int currentPosition){
@@ -135,20 +123,14 @@ public class Module {
         }
     }
     
-    private void createNewStudent (String name, String bannerId, Result studentResult, int currentPosition){
-        this.studentList[currentPosition] = new Student (name, bannerId, studentResult);
-        this.noOfStudents++;
+    private double findOverallMark (int cwMark, int examMark){
+        double overallMark;
+        overallMark = (cwMark*((double)this.cwCont/100)) + (examMark*((double)this.examCont/100));
+        return overallMark;
     }
     
-    private Result getResult (int cwMark, int examMark){
-        double overallMark;
+    private String findResult (int cwMark, int examMark, double overallMark){
         String result;
-        String grade;
-        
-        //calculate overall mark using weighted percentages
-        overallMark = (cwMark*((double)this.cwCont/100)) + (examMark*((double)this.examCont/100));
-        
-        //work out result
         if (overallMark >= 49.5 && cwMark >= 40 && examMark >= 40){
             result = "PA";
         }
@@ -161,8 +143,11 @@ public class Module {
         else {
             result = "RB2";
         }
-        
-        //work out grade
+        return result;
+    }
+    
+    private String findGrade (double overallMark, String result){
+        String grade;
         if (result.equals("PA")) {
             if (overallMark >= 89.5){
                 grade = "A1";
@@ -189,12 +174,58 @@ public class Module {
             else
                 grade = "E";
         }
-        
-        // create the Result object
-        
-        Result studentResult = new Result (cwMark, examMark, overallMark, grade, result);
-          
-    return studentResult;     
+        return grade;
+    }
+    
+    private int countPasses() {
+        int countPasses = 0; 
+        for (int i=0; i<this.noOfStudents; i++){
+            if (this.studentList[i].getResult().getTotalResult().equals("PA")){
+                countPasses++;
+            }
+        }
+        return countPasses;
+    }
+    
+    private double percentPassed() {
+        int noOfPasses = this.countPasses();
+        double percentPassed = ((double)noOfPasses/this.noOfStudents)*100;
+        return percentPassed;
+    }
+    
+    private double examAverage() {
+        double examTotal = 0;
+        double examAverage;
+        for (int i=0; i<this.noOfStudents; i++){
+            examTotal+=this.studentList[i].getResult().getExamMark();
+        }
+        examAverage = this.findAverage(examTotal);
+        return examAverage;
+    }
+    
+    private double cwAverage(){
+        double cwTotal = 0;
+        double cwAverage;
+        for (int i=0; i<this.noOfStudents; i++){
+            cwTotal+=this.studentList[i].getResult().getCwMark();
+        }
+        cwAverage = this.findAverage(cwTotal);
+        return cwAverage;
+    }
+    
+    private double overallAverage() {
+        double overallTotal = 0;
+        double overallAverage;
+        for (int i=0; i<this.noOfStudents; i++){
+            overallTotal+=this.studentList[i].getResult().getOverallMark();
+        }
+        overallAverage = this.findAverage(overallTotal);
+        return overallAverage;
+    }
+    
+    private double findAverage(double total) {
+        double average = (total/this.noOfStudents);
+        return average;
     }
     
     public String toString(){
@@ -204,19 +235,16 @@ public class Module {
         String totalCounts = new String();
         String output = new String();
         
-        int filler = 4;
-        double filled = 55.74;
-        
         overHeadDetails+=String.format("%-15s%-50s\n%-15s%-5d\n%-15s%-5d\n%-15s%5.2f%-1s\n", 
-                "Module: ", this.modName, "Students: ", this.noOfStudents, "Passes: ", filler, "Pass Rate: ", filled, "%");
+            "Module: ", this.modName, "Students: ", this.noOfStudents, "Passes: ", this.countPasses(), "Pass Rate: ", this.percentPassed(), "%");
         
         titleDetails+=String.format("%-30s%-20s%-10s%-10s%-10s%-10s%-10s\n", 
-                "NAME", "BANNER ID", "CWRK(" + cwCont + ")", "EXAM(" + examCont + ")", "TOTAL", "GRADE", "RESULT");
+            "NAME", "BANNER ID", "CWRK(" + cwCont + ")", "EXAM(" + examCont + ")", "TOTAL", "GRADE", "RESULT");
                 
         for (int i=0; i<this.noOfStudents; i++)
             studentDetails+=this.studentList[i];
         
-        totalCounts+=String.format("%-50s%-10.2f%-10.2f%-10.2f", "AVERAGE%", filled, filled, filled);
+        totalCounts+=String.format("%-50s%-10.2f%-10.2f%-10.2f", "AVERAGE%", this.cwAverage(), this.examAverage(), this.overallAverage());
                     
         output+= overHeadDetails + titleDetails + studentDetails + totalCounts;
         return output;
