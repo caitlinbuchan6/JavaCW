@@ -78,6 +78,7 @@ public class ResultTestGUI extends javax.swing.JFrame {
         });
 
         moduleDisplayTextArea.setColumns(20);
+        moduleDisplayTextArea.setFont(new java.awt.Font("Courier New", 0, 13)); // NOI18N
         moduleDisplayTextArea.setRows(5);
         jScrollPane1.setViewportView(moduleDisplayTextArea);
 
