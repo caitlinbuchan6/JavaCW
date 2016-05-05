@@ -11,15 +11,15 @@
 public class Module {
     private Student [] studentList;
     private String modName;
-    private int examCont;
     private int cwCont;
+    private int examCont;
     private int noOfStudents;
     
-    public Module (int size, String modName, int examCont, int cwCont){
+    public Module (int size, String modName, int cwCont, int examCont){
         this.studentList = new Student [size];
         this.modName = modName;
-        this.examCont = examCont;
         this.cwCont = cwCont;
+        this.examCont = examCont;
     }
     
     public void addStudent (String name, String bannerId, int cwMark, int examMark){

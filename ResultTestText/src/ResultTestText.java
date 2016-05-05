@@ -21,8 +21,9 @@ public class ResultTestText {
         //Variables needed to create a new Module
         int size = Input.getInteger("Please input the number of Students: ");
         String modName = Input.getString("Please input the module name: ");
-        int examCont = Input.getInteger("Please input the exam percentage contribution: ");
         int cwCont = Input.getInteger("Please input the coursework percentage contribution: ");
+        int examCont = Input.getInteger("Please input the exam percentage contribution: ");
+        
                 
         //Create studentList
         Module studentList = new Module (size, modName, examCont, cwCont);

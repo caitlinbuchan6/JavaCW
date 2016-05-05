@@ -18,10 +18,10 @@ public class ResultTestFiles {
         final int MAX_NO_OF_STUDENTS = 30;
         
         String modName = FileIO.getString();
-        int examCont = FileIO.getInteger();
         int cwCont = FileIO.getInteger();
+        int examCont = FileIO.getInteger();
         
-        Module studentList = new Module (MAX_NO_OF_STUDENTS, modName, examCont, cwCont);
+        Module studentList = new Module (MAX_NO_OF_STUDENTS, modName, cwCont, examCont);
         
         do {
             name = FileIO.getString();

@@ -1,27 +1,35 @@
 Applications Development with Java
-60
 40
+60
 Winchester, Dean
 B30480344
-43
-38
+95
+95
 Tough, Kyle
 B09384932
-100
-39
+85
+85
 Buchan, Caitlin
 B09898432
-30
-100
+75
+75
 McDonald, Donald
 B88508593
-20
-17
+65
+65
 Winchester, Dean
 B30480345
-76
-64
+55
+55
 McDonald, Donald
 B88508594
-65
-34
+45
+45
+Stewart, David
+B09334334
+35
+35
+Johnson, Max
+B95905596
+25
+25
