@@ -29,18 +29,20 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="examMarkLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cwMarkLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="bannerIdLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="nameLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="moduleNameLabel" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="examMarkLabel" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cwMarkLabel" min="-2" max="-2" attributes="0"/>
+                                      <Component id="bannerIdLabel" min="-2" max="-2" attributes="0"/>
+                                      <Component id="nameLabel" min="-2" max="-2" attributes="0"/>
+                                      <Component id="moduleNameLabel" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
+                              <Component id="examContLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="cwContLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="examContLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="cwContLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
