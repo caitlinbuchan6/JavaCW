@@ -8,7 +8,7 @@
  *
  * @author caitlin
  */
-public class Module {
+public class Module implements Comparable<Student> {
     private Student [] studentList;
     private String modName;
     private int cwCont;
@@ -26,22 +26,27 @@ public class Module {
         String grade;
         String result;
         double overallMark;
-        int studentPosition = this.compareTo(name, bannerId);
-        
+                
         //get mark, result and grade from respective private methods
         overallMark = this.findOverallMark(cwMark, examMark);
         result = this.findResult(cwMark, examMark, overallMark);
         grade = this.findGrade(overallMark, result);
         
+        //create student object
+        Student student = new Student (name, bannerId, cwMark, examMark, overallMark, grade, result);
+        //find student position within the array
+        int studentPosition = this.compareTo(student);
+        
         //move existing students along if necessary
         this.moveOver(studentPosition);
         
         //create student at current position in the array        
-        this.studentList[studentPosition] = new Student (name, bannerId, cwMark, examMark, overallMark, grade, result);
+        this.studentList[studentPosition] = student;
         this.noOfStudents++;
     }
     
-    private int compareTo (String name, String bannerId){
+    @Override
+    public int compareTo (Student student){
         /*algorithm
         add first student to position 0 in the array
         while loop
@@ -87,10 +92,10 @@ public class Module {
                 }
                 else {
                     //compare the name of the new student, to the name of the student at the current position in the array            
-                    nameComparison = this.studentList[studentPosition].getName().compareToIgnoreCase(name);
+                    nameComparison = this.studentList[studentPosition].getName().compareToIgnoreCase(student.getName());
                     //comparing bannerID
                     if (nameComparison == 0){
-                        idComparison = this.studentList[studentPosition].getBannerId().compareToIgnoreCase(bannerId);
+                        idComparison = this.studentList[studentPosition].getBannerId().compareToIgnoreCase(student.getBannerId());
                         //student at position+1
                         if (idComparison < 0){
                             studentPosition++;
@@ -250,5 +255,5 @@ public class Module {
         return output;
         
     }
-    
+
 }
