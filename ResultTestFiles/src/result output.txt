@@ -1,16 +1,20 @@
-test run on: Thu May 05 13:07:23 BST 2016
+test run on: Thu May 05 14:44:05 BST 2016
 
 Module:        Applications Development with Java                
-Students:      8    
-Passes:        5    
-Pass Rate:     62.50%
+Students:      12   
+Passes:        6    
+Pass Rate:     50.00%
 NAME                          BANNER ID           CWRK(40)  EXAM(60)  TOTAL     GRADE     RESULT    
-Buchan, Caitlin               B09898432           75        75        75.00     A3        PA        
-Johnson, Max                  B95905596           25        25        25.00     E         RB2       
-McDonald, Donald              B88508593           65        65        65.00     B1        PA        
-McDonald, Donald              B88508594           45        45        45.00     C         RB2       
-Stewart, David                B09334334           35        35        35.00     D         RB2       
-Tough, Kyle                   B09384932           85        85        85.00     A2        PA        
-Winchester, Dean              B30480344           95        95        95.00     A1        PA        
-Winchester, Dean              B30480345           55        55        55.00     B2        PA        
-AVERAGE%                                          60.00     60.00     60.00     
+Buchanan, Martha              B00348543           85        85        85.00     A2        PA        
+Johnson, Robert               B00674864           65        35        47.00     C         RE2       
+Jones, Victoria               B00475934           25        25        25.00     E         RB2       
+Jones, Victoria               B00683294           65        65        65.00     B1        PA        
+MacDonald, Zack               B00844938           75        75        75.00     A3        PA        
+Matthews, Kyle                B00964832           60        60        60.00     B1        PA        
+Ramsay, Martin                B00457329           55        55        55.00     B2        PA        
+Ritter, Aimee                 B00385820           30        30        30.00     D         RB2       
+Stewart, David                B00453488           35        65        53.00     C         RC2       
+Stewart, David                B00453489           95        95        95.00     A1        PA        
+Thompson, Amelia              B00238491           35        35        35.00     D         RB2       
+Weston, Jonathan              B00483982           45        45        45.00     C         RB2       
+AVERAGE%                                          55.83     55.83     55.83     

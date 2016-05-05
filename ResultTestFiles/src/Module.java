@@ -118,8 +118,8 @@ public class Module {
     }
     
     private void moveOver (int currentPosition){
-        for (int i = this.noOfStudents; i >= currentPosition; i--){
-            this.studentList[i+1] = this.studentList[i];
+        for (int i =(this.noOfStudents-1); i >= currentPosition; i--){
+                this.studentList[i+1] = this.studentList[i];
         }
     }
     
